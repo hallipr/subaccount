@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DFEA4069-3BCE-4F8E-94EF-D00D619547C7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SubAccount.Loader</RootNamespace>
+    <AssemblyName>SubAccount.Loader</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommandLine">
+      <HintPath>..\packages\CommandLineParser.1.9.71\lib\net45\CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountConfig.cs" />
+    <Compile Include="Args\AddAccountsSubOptions.cs" />
+    <Compile Include="Args\CommonSubOptions.cs" />
+    <Compile Include="Args\DownloadTransactionsSubOptions.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Downloader.cs" />
+    <Compile Include="GuidUtility.cs" />
+    <Compile Include="Ofx\Models\Banking\IncTran.cs" />
+    <Compile Include="Ofx\Models\Banking\StmtRq.cs" />
+    <Compile Include="Ofx\Models\Banking\StmtTrnRq.cs" />
+    <Compile Include="Ofx\Models\Signup\AcctInfo.cs" />
+    <Compile Include="Ofx\Models\Signup\AcctInfoRq.cs" />
+    <Compile Include="Ofx\Models\Signup\AcctInfoRs.cs" />
+    <Compile Include="Ofx\Models\Signup\AcctInfoTrnRq.cs" />
+    <Compile Include="Ofx\Models\Signup\AcctInfoTrnRs.cs" />
+    <Compile Include="Ofx\Models\BankAcctFrom.cs" />
+    <Compile Include="Ofx\Models\Signup\BankAcctInfo.cs" />
+    <Compile Include="Ofx\Models\Banking\BankMsgsRsV1.cs" />
+    <Compile Include="Ofx\Models\Banking\BankTranList.cs" />
+    <Compile Include="Ofx\Models\Signup\BpAcctInfo.cs" />
+    <Compile Include="Ofx\Models\Fi.cs" />
+    <Compile Include="Ofx\Models\Banking\Balance.cs" />
+    <Compile Include="Ofx\Models\TransactionResponse.cs" />
+    <Compile Include="Ofx\Models\Signon\SonRq.cs" />
+    <Compile Include="Ofx\Models\TransactionRequest.cs" />
+    <Compile Include="Ofx\Models\Banking\BankMsgsRqV1.cs" />
+    <Compile Include="Ofx\Models\OfxRequest.cs" />
+    <Compile Include="Ofx\Models\OfxResponse.cs" />
+    <Compile Include="Ofx\Parsing\OfxBoolConverter.cs" />
+    <Compile Include="Ofx\Parsing\OfxDateTimeConverter.cs" />
+    <Compile Include="Ofx\Parsing\OfxParser.cs" />
+    <Compile Include="Ofx\Parsing\Segment.cs" />
+    <Compile Include="Ofx\Models\Signon\SignonMsgsRsV1.cs" />
+    <Compile Include="Ofx\Models\Signup\SignupMsgsRsV1.cs" />
+    <Compile Include="Ofx\Models\Signon\SonRs.cs" />
+    <Compile Include="Ofx\Models\Status.cs" />
+    <Compile Include="Ofx\Models\Banking\StmtRs.cs" />
+    <Compile Include="Ofx\Models\Banking\StmtTrn.cs" />
+    <Compile Include="Ofx\Models\Banking\StmtTrnRs.cs" />
+    <Compile Include="Ofx\Models\Signon\SignonMsgsRqV1.cs" />
+    <Compile Include="Ofx\Models\Signup\SignupMsgsRqV1.cs" />
+    <Compile Include="Args\Options.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Uploader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SubAccount.Common\SubAccount.Common.csproj">
+      <Project>{D6CD99C5-BC20-40B0-894D-01FE1D7C0846}</Project>
+      <Name>SubAccount.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

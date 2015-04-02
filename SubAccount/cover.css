@@ -1,0 +1,8 @@
+﻿body {
+    padding-top: 50px;
+}
+
+.table td {
+    overflow-x: hidden;
+    white-space: nowrap;
+}
